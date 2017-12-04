@@ -22,25 +22,14 @@ def fetch_news_body(srcs):
     """
 
     LookupAttr = [
-        '#article-entry',
-        '.articlePage',
-        '.page',
-        '.page__body',
-        '#body-text',
-        '#storycontent',
-        '.Article__body',
-        '.wrap-content',
-        '.MsoNormal']
+        '#article-entry', '.articlePage', '.page',
+        '.page__body', '#body-text', '#storycontent',
+        '.Article__body', '.wrap-content', '.MsoNormal'
+    ]
     IgnoredAttr = [
-        'script',
-        'style',
-        'svg',
-        'button',
-        'input',
-        'text',
-        'span',
-        'a',
-        'img']
+        'script', 'style', 'svg', 'button',
+        'input', 'text', 'span', 'a', 'img'
+    ]
     resp = []
     for i in srcs:
         html = pq(url=i['link'])
@@ -72,7 +61,6 @@ def parse_news_src():
     ]
     srcs = map(lambda x: {'title': '', 'description': '', 'link': x}, url)
     resp += fetch_news_body(srcs)
-    print(len(resp))
     return resp
 
 def tokenize(line):
